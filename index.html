@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+    <script
+      src="https://kit.fontawesome.com/c8e4d183c2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav>
+      <div class="row">
+        <div class="nav__container">
+          <div class="logo__wrapper">
+            <a href="#" class="logo__link">
+              <img src="./assets/A.png" alt="" class="logo" />
+            </a>
+            <h5 class="logo__text">AMPLIX</h5>
+          </div>
+          <ul class="nav__link--list">
+            <li class="nav__link">
+              <a href="#" class="nav__link--anchor"
+                ><span class="red">Home</span></a
+              >
+            </li>
+            <li class="nav__link">
+              <a href="films.html" class="nav__link--anchor">Search</a>
+            </li>
+            <li class="nav__link">
+              <a href="#" class="nav__link--anchor nav__link--contact"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section id="landing">
+      <div class="container">
+        <div class="row">
+          <h1 class="section__title">
+            United Kingdom's most awarded entertainment streaming service
+            platform
+          </h1>
+          <h2 class="section__sub-title">
+            FIND YOUR FILM / SERIES WITH <span class="red">AMPLIX</span>
+          </h2>
+          <div class="search__bar">
+            <input
+              type="search"
+              name=""
+              placeholder="Search"
+              id="movie-search-box"
+              onchange="findMovies(event)"
+            />
+            <button class="search__btn">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="overlay button__loading--success overlay--visible"></div>
+          <figure class="img__wrapper">
+            <img
+              class="img--popcorn"
+              src="./assets/movie-icon-interface-icon-compilation-icon-video-player-icon-FPUFDKem.jpeg"
+              alt=""
+            />
+          </figure>
+        </div>
+      </div>
+      <select id="filter" onchange="filter(event)">
+        <div class="movies__results--header">
+            Search Results: <span class="searchResult"></span>
+        </div>
+        <option value="" disabled selected>Sort</option>
+        <option value="LOW_T0_HIGH">Year, Low to High</option>
+        <option value="HIGH_TO_LOW">Year, High to Low</option>
+        <option value="FILMS">Films</option>
+        <option value="SERIES">Series</option>
+      </select>
+      <div class="movie-list">
+        <div class="movie">
+          <div class="movie-card">
+            <div class="movie-card__container">
+              <figure class="poster__wrapper">
+                <img src="" alt="" />
+              </figure>
+              <div class="title__wrapper">
+                <h3>Movie Name</h3>
+                <p><b>Type:</b>Movie</p>
+                <p><b>Year:</b>2015</p>
+                <p><b>imdbID:</b>1234</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="./index.js"></script>
+  </body>
+</html>
