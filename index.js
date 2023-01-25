@@ -20,9 +20,7 @@ async function filterFilms(id) {
 
 function sortFilms(filter) {
   if (filter === "LOW_TO_HIGH") {
-    filteredMovies = movieData.sort(
-      (a, b) => (a.Year || a.Year) - (b.Year || b.Year)
-    );
+    movieData.sort((a, b) => (a.Year || a.Year) - (b.Year || b.Year));
   } else if (filter === "HIGH_TO_LOW") {
     movieData.sort((a, b) => (b.Year || b.Year) - (a.Year || a.Year));
   }
