@@ -19,19 +19,14 @@ async function filterFilms(id) {
 }
 
 function sortFilms(filter) {
-  let filteredMovies;
   if (filter === "LOW_TO_HIGH") {
     filteredMovies = movieData.sort(
       (a, b) => (a.Year || a.Year) - (b.Year || b.Year)
     );
   } else if (filter === "HIGH_TO_LOW") {
-    filteredMovies = movieData.sort(
-      (a, b) => (b.Year || b.Year) - (a.Year || a.Year)
-    );
-  } else {
-    filteredMovies = movieData;
+    movieData.sort((a, b) => (b.Year || b.Year) - (a.Year || a.Year));
   }
-  movieListEl.innerHTML = filteredMovies.map((film) => filmHTML(film)).join("");
+  movieListEl.innerHTML = movieData.map((film) => filmHTML(film)).join("");
 }
 
 async function findMovies(event) {
