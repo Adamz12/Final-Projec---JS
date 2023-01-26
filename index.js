@@ -1,17 +1,20 @@
 // "https://www.omdbapi.com/?apikey=59334251&s=fast"
 // https://www.omdbapi.com/?i=tt3896198&apikey=59334251
 // `https://www.omdbapi.com/?s=${searchTerm}&page=1&apikey=59334251`
+// `https://www.omdbapi.com/?&apikey=59334251&s=${id}`
 
 const movieSearchBox = document.getElementById("movie-search-box");
 const movieListEl = document.querySelector(".movie-list");
 const searchResultEl = document.querySelector(".searchResult");
 const id = localStorage.getItem("id");
 
+let movieData = {};
+
 async function filterFilms(id) {
   const movies = await fetch(
-    `https://www.omdbapi.com/?i=tt3896198&apikey=59334251&s=${id}`
+    `https://www.omdbapi.com/?apikey=59334251&s=${id}`
   );
-  const movieData = await movies.json();
+  movieData = await movies.json();
   console.log(movieData);
   movieListEl.innerHTML = movieData.Search.map((film) => filmHTML(film)).join(
     ""
@@ -20,11 +23,11 @@ async function filterFilms(id) {
 
 function sortFilms(filter) {
   if (filter === "LOW_TO_HIGH") {
-    movieData.sort((a, b) => (a.Year || a.Year) - (b.Year || b.Year));
+    movieData.Search.sort((a, b) => a.Year - b.Year);
   } else if (filter === "HIGH_TO_LOW") {
-    movieData.sort((a, b) => (b.Year || b.Year) - (a.Year || a.Year));
+    movieData.Search.sort((a, b) => b.Year - a.Year);
   }
-  movieListEl.innerHTML = movieData.map((film) => filmHTML(film)).join("");
+  console.log(movieData);
 }
 
 async function findMovies(event) {
