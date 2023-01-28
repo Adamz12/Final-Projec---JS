@@ -3,13 +3,17 @@
 // `https://www.omdbapi.com/?s=${searchTerm}&page=1&apikey=59334251`
 // `https://www.omdbapi.com/?&apikey=59334251&s=${id}`
 
-const movieSearchBox = document.getElementById("movie-search-box");
-const movieListEl = document.querySelector(".movie-list");
+let movieSearchBox = document.getElementById("movie-search-box");
+let movieListEl = document.querySelector(".movie-list");
 const searchResultEl = document.querySelector(".searchResult");
 const id = localStorage.getItem("id");
 
+let movies;
 let movieData = {};
 
+// USE MOVIEDATA AS A GLOBAL VARIABLE SO IT CAN BE ACCSESSED IN VARIOUS FUNCTIONS
+
+movieListEl.classList.add("movie__loading"); // Adds class to remove movie list
 async function filterFilms(id) {
   const movies = await fetch(
     `https://www.omdbapi.com/?apikey=59334251&s=${id}`
@@ -22,18 +26,26 @@ async function filterFilms(id) {
 }
 
 function sortFilms(filter) {
-  if (filter === "LOW_TO_HIGH") {
+  if (filter === "OLDEST") {
     movieData.Search.sort((a, b) => a.Year - b.Year);
+    movieListEl.innerHTML = movieData.Search.map((film) => filmHTML(film)).join(
+      ""
+    );
   } else if (filter === "HIGH_TO_LOW") {
     movieData.Search.sort((a, b) => b.Year - a.Year);
+    movieListEl.innerHTML = movieData.Search.map((film) => filmHTML(film)).join(
+      ""
+    );
   }
-  console.log(movieData);
+  //   USE THE INNER HTML SO WHEN PEOPLE SORT IT THE DATA SHOWS AS HTML
 }
-
 async function findMovies(event) {
   const id = event.target.value;
   filterFilms(id);
+  movieListEl.classList.remove("movie__loading"); //   Movies only displayed when seach is activivated
 }
+
+//   THIS ALLOWS US TO SEARCH THE FILMS THROUGH THE SEARCH BAR BY PASSING THROUGH THE FILTERFilms with id
 
 search_button = document.querySelector(".search__btn");
 
@@ -47,7 +59,8 @@ search_button.onclick = function () {
 };
 
 function filter(event) {
-  filterFilms(event.target.value);
+  sortFilms(event.target.value);
+  //   IN ORDER TO MAKE THE SORT SECTION WORK WE NEED TO TARGET THE SORT CODE AND USE EVENT.TARGET.VALUE
 }
 
 function filmHTML(film) {
@@ -69,6 +82,7 @@ function filmHTML(film) {
       </div>
     </div>
   </div>`;
+  movieWrapper.innerHTML = filmHTML(film);
 }
 
 filterFilms();

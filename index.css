@@ -184,14 +184,13 @@ LANDING
 .overlay {
   position: relative;
   right: 0;
-  top:0;
+  top: 0;
 }
 
 .button__overlay--loading {
   font-size: 28px;
   /* pointer-events: none; */
   color: #fff;
-  
 }
 
 /* .overlay--visible {
@@ -272,13 +271,14 @@ input:hover {
   flex-wrap: wrap;
 }
 
+
 .movie {
   width: 33%;
   margin-bottom: 24px;
 }
 
-.title__wrapper{
-    color: #ffff;
+.title__wrapper {
+  color: #ffff;
 }
 
 .poster__wrapper {
@@ -305,3 +305,9 @@ input:hover {
   opacity: 0.7;
   transform: translateY(20%);
 }
+
+.movie__loading{
+    display: none;
+}
+
+
