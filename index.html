@@ -49,56 +49,63 @@
           <h2 class="section__sub-title">
             FIND YOUR FILM / SERIES WITH <span class="red">AMPLIX</span>
           </h2>
-          <div class="search__bar">
-            <input
-              type="search"
-              name=""
-              placeholder="Search"
-              id="movie-search-box"
-              onchange="findMovies(event)"
-            />
-            <button class="search__btn">
-              <i class="fa fa-search" aria-hidden="true"></i>
-            </button>
-          </div>
-          <div class="overlay button__loading--success overlay--visible"></div>
-          <figure class="img__wrapper">
-            <img
-              class="img--popcorn"
-              src="./assets/movie-icon-interface-icon-compilation-icon-video-player-icon-FPUFDKem.jpeg"
-              alt=""
-            />
-          </figure>
-        </div>
-      </div>
-      <select id="filter" onchange="filter(event)">
-        <div class="movies__results--header">
-          Search Results: <span class="searchResult"></span>
-        </div>
-        <option value="" disabled selected>Sort</option>
-        <option value="OLDEST">Year, Low to High</option>
-        <option value="HIGH_TO_LOW">Year, High to Low</option>
-        <option value="FILMS">Films</option>
-        <option value="SERIES">Series</option>
-      </select>
-      <div class="movie-list">
-        <div class="movie">
-          <div class="movie-card">
-            <div class="movie-card__container">
-              <figure class="poster__wrapper">
-                <img src="" alt="" />
-              </figure>
-              <div class="title__wrapper">
-                <h3>Movie Name</h3>
-                <p><b>Type:</b>Movie</p>
-                <p><b>Year:</b>2015</p>
-                <p><b>imdbID:</b>1234</p>
-              </div>
+          <form action="">
+            <div class="search__bar">
+              <input
+                type="search"
+                name=""
+                placeholder="Search"
+                id="movie-search-box"
+                onchange="findMovies(event)"
+              />
+              <button type="button" class="search__btn">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
             </div>
-          </div>
+            <div
+              class="overlay button__loading--success overlay--visible"
+            ></div>
+          </form>
+          <figure class="img__wrapper">
+            <!-- <img
+              class="img--popcorn"
+              src="./assets/movies-dark.jpeg"
+              alt=""
+            /> -->
+            <i class="fas fa-arrow-down"></i>
+          </figure>
+        </section>
+        <select id="filter" onchange="filter(event)">
+            <div class="movies__results--header">
+                Search Results: <span class="searchResult"></span>
+            </div>
+            <option value="" disabled selected>Sort</option>
+            <option value="OLDEST">Year, Low to High</option>
+            <option value="HIGH_TO_LOW">Year, High to Low</option>
+            <option value="FILMS">Films</option>
+            <option value="SERIES">Series</option>
+        </select>
+        <section id="movie__section">
+            <div class="movie-list">
+                <div class="movie">
+                    <div class="movie-card">
+                        <div class="movie-card__container">
+                            <figure class="poster__wrapper">
+                                <img src="" alt="" />
+                            </figure>
+                            <div class="title__wrapper">
+                                <h3>Movie Name</h3>
+                                <p><b>Type:</b>Movie</p>
+                                <p><b>Year:</b>2015</p>
+                                <p><b>imdbID:</b>1234</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
     <script src="./index.js"></script>
   </body>
 </html>

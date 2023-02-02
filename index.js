@@ -8,12 +8,14 @@ let movieListEl = document.querySelector(".movie-list");
 const searchResultEl = document.querySelector(".searchResult");
 const id = localStorage.getItem("id");
 
+let movie__loading;
 let movies;
 let movieData = {};
 
 // USE MOVIEDATA AS A GLOBAL VARIABLE SO IT CAN BE ACCSESSED IN VARIOUS FUNCTIONS
 
 movieListEl.classList.add("movie__loading"); // Adds class to remove movie list
+
 async function filterFilms(id) {
   const movies = await fetch(
     `https://www.omdbapi.com/?apikey=59334251&s=${id}`
@@ -39,8 +41,14 @@ function sortFilms(filter) {
   }
   //   USE THE INNER HTML SO WHEN PEOPLE SORT IT THE DATA SHOWS AS HTML
 }
+
+function timeout(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 async function findMovies(event) {
   const id = event.target.value;
+  await timeout(1000);
   filterFilms(id);
   movieListEl.classList.remove("movie__loading"); //   Movies only displayed when seach is activivated
 }
@@ -53,9 +61,10 @@ search_button.onclick = function () {
   this.innerHTML =
     "<div class='overlay button__overlay--loading'> <i class='fas fa-spinner'></i></div>";
   setTimeout(() => {
-    this.innerHTML = "T";
-    this.style = "background #f1f5f4; color:#333; pointer-events:none";
-  }, 2000);
+    this.innerHTML = '<i class="fa fa-search" aria-hidden="true"></i>';
+    this.style = "background #f1f5f4; color:#ffff; pointer-events:pointer";
+  }, 1000);
+    movieListEl.classList.remove("movie__loading");
 };
 
 function filter(event) {

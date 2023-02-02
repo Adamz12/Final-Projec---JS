@@ -24,7 +24,10 @@ nav {
   justify-content: space-between;
   align-items: center;
   background-color: #1d2630;
+  background-image: url(./assets/movies-dark.jpeg)
 }
+
+
 
 .container {
   padding: 80px 0;
@@ -135,6 +138,8 @@ LANDING
 
 */
 
+
+
 .section__title {
   font-size: 48px;
   margin-bottom: 30px;
@@ -173,6 +178,23 @@ LANDING
   cursor: pointer;
 }
 
+.fa-arrow-down{
+    font-size: 80px;
+    color: #fff;
+    margin-right: 100px;
+    margin-top: 40px;
+    animation: downUp 800ms infinite alternate-reverse;
+}
+
+@keyframes downUp{
+    0%{
+        transform: translateY(3px);
+    }
+    100%{
+        transform: translateY(-3px);
+    }
+}
+
 /*  SEARCH 
 
    BUTTON 
@@ -189,7 +211,7 @@ LANDING
 
 .button__overlay--loading {
   font-size: 28px;
-  /* pointer-events: none; */
+  pointer-events: none;
   color: #fff;
 }
 
@@ -199,16 +221,20 @@ LANDING
 } */
 
 .fa-spinner {
-  animation: spinner 1000ms infinite;
+  display: block;
+  animation: spinner 1000ms infinite linear;
   color: #fff;
+  transition: opacity 2s, visibility 2s;
 }
+
 
 @keyframes spinner {
   0% {
-    transform: rotate(0turn);
+    transform: rotate(0);
   }
+
   100% {
-    transform: rotate(1turn);
+    transform: rotate(360deg);
   }
 }
 
@@ -235,6 +261,7 @@ input:hover {
 }
 
 .img__wrapper {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -266,11 +293,11 @@ input:hover {
   */
 
 .movie-list {
+  margin-top: 16px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
 }
-
 
 .movie {
   width: 33%;
@@ -306,8 +333,34 @@ input:hover {
   transform: translateY(20%);
 }
 
-.movie__loading{
-    display: none;
+.movie__loading {
+  display: none;
 }
 
 
+@media (max-width:768px){
+    .section__title{
+        font-size: 32px;
+    }
+    .section__sub-title{
+        font-size: 24px
+    }
+}
+
+@media (max-width:480px){
+.search__btn{
+position: absolute;
+top: 80px;
+}
+.search__bar{
+    position: relative;
+    width: 100%;
+}
+#movie-search-box{
+    width: 100%;
+}
+.fa-arrow-down{
+    margin-top: 96px;
+    margin-left: 92px;
+}
+}
