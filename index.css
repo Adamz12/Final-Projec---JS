@@ -249,6 +249,9 @@ LANDING
 }
 
 .search__btn {
+  display: flex;
+  justify-content: center;
+  align-content: center;
   padding: 12px 20px;
   margin-left: 20px;
   width: 108px;
@@ -286,9 +289,9 @@ LANDING
    */
 
 .overlay {
-  position: relative;
-  left: 12px;
-  top: 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 .button__overlay--loading {
@@ -468,6 +471,9 @@ input:hover {
 @media (max-width: 480px) {
   .search__btn {
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-content: center;
     top: 80px;
     z-index: 100;
   }
@@ -482,19 +488,19 @@ input:hover {
     margin-top: 96px;
     margin-left: 92px;
   }
-  .overlay {
+  /* .overlay {
     position: relative;
     left: 16px;
     top: 0;
-  }
+  } */
 }
 
 @media (max-width: 350px) {
-    .section__title{
-        font-size: 20px;
-        text-align: center;
-    }
-    .section__sub-title{
-        font-size: 16px;
-    }
+  .section__title {
+    font-size: 20px;
+    text-align: center;
+  }
+  .section__sub-title {
+    font-size: 16px;
+  }
 }
