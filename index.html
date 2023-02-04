@@ -36,6 +36,40 @@
               >
             </li>
           </ul>
+          <div class="btn__menu" onclick="openMenu()">
+        <i class="fas fa-bars"></i>
+         </div>
+         <div class="menu__backdrop">
+             <button class="btn__menu btn__menu--close" onclick="closeMenu()">
+            <i class="fas fa-times"></i>
+              </button>
+            <ul class="menu__links">
+                <li class="menu__list">
+                    <a
+                  href="#"
+                  class="menu__link menu__link--red"
+                  onclick="closeMenu()"
+                  >Home</a
+                >
+                </li>
+                <li class="menu__list">
+                    <a
+                  href="#"
+                  class="menu__link menu__link--red"
+                  onclick="closeMenu()"
+                  >Search</a
+                >
+                </li>
+                <li class="menu__list">
+                    <a
+                  href="#"
+                  class="menu__link menu__link--red"
+                  onclick="closeMenu()"
+                  >Contact</a
+                >
+                </li>
+            </ul>
+         </div>
         </div>
       </div>
     </nav>
@@ -67,11 +101,6 @@
             ></div>
           </form>
           <figure class="img__wrapper">
-            <!-- <img
-              class="img--popcorn"
-              src="./assets/movies-dark.jpeg"
-              alt=""
-            /> -->
             <i class="fas fa-arrow-down"></i>
           </figure>
         </section>
@@ -85,26 +114,30 @@
             <option value="FILMS">Films</option>
             <option value="SERIES">Series</option>
         </select>
+        </div>
+        </div>
         <section id="movie__section">
-            <div class="movie-list">
-                <div class="movie">
-                    <div class="movie-card">
-                        <div class="movie-card__container">
-                            <figure class="poster__wrapper">
-                                <img src="" alt="" />
-                            </figure>
-                            <div class="title__wrapper">
-                                <h3>Movie Name</h3>
-                                <p><b>Type:</b>Movie</p>
-                                <p><b>Year:</b>2015</p>
-                                <p><b>imdbID:</b>1234</p>
+            <div class="container">
+                <div class="row">
+                    <div class="movie-list">
+                    <div class="movie">
+                            <div class="movie-card">
+                                <div class="movie-card__container">
+                                    <figure class="poster__wrapper">
+                                        <img src="" alt="" />
+                                    </figure>
+                                    <div class="title__wrapper">
+                                        <h3>Movie Name</h3>
+                                        <p><b>Type:</b>Movie</p>
+                                        <p><b>Year:</b>2015</p>
+                                        <p><b>imdbID:</b>1234</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 </section>
     <script src="./index.js"></script>
   </body>

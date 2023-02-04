@@ -5,6 +5,7 @@
 
 let movieSearchBox = document.getElementById("movie-search-box");
 let movieListEl = document.querySelector(".movie-list");
+let movieCard = document.querySelector(".movie-card");
 const searchResultEl = document.querySelector(".searchResult");
 const id = localStorage.getItem("id");
 
@@ -14,7 +15,15 @@ let movieData = {};
 
 // USE MOVIEDATA AS A GLOBAL VARIABLE SO IT CAN BE ACCSESSED IN VARIOUS FUNCTIONS
 
+movieCard.classList.add("movie__loading");
 movieListEl.classList.add("movie__loading"); // Adds class to remove movie list
+
+function openMenu() {
+  document.body.classList += "menu--open";
+}
+function closeMenu() {
+  document.body.classList.remove("menu--open");
+}
 
 async function filterFilms(id) {
   const movies = await fetch(
@@ -64,7 +73,7 @@ search_button.onclick = function () {
     this.innerHTML = '<i class="fa fa-search" aria-hidden="true"></i>';
     this.style = "background #f1f5f4; color:#ffff; pointer-events:pointer";
   }, 1000);
-    movieListEl.classList.remove("movie__loading");
+  movieListEl.classList.remove("movie__loading");
 };
 
 function filter(event) {
@@ -80,8 +89,7 @@ function filmHTML(film) {
       <img
       src="${film.Poster}"
       alt=""
-      class="poster"
-    />
+      />
     </figure>
     <div class="title__wrapper">
          <h3>${film.Title}</h3>
