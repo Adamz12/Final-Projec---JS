@@ -3,7 +3,6 @@
 // `https://www.omdbapi.com/?s=${searchTerm}&page=1&apikey=59334251`
 // `https://www.omdbapi.com/?&apikey=59334251&s=${id}`
 
-let movieSearchBox = document.getElementById("movie-search-box");
 let movieListEl = document.querySelector(".movie-list");
 let movieCard = document.querySelector(".movie-card");
 const searchResultEl = document.querySelector(".searchResult");
@@ -42,7 +41,7 @@ function sortFilms(filter) {
     movieListEl.innerHTML = movieData.Search.map((film) => filmHTML(film)).join(
       ""
     );
-  } else if (filter === "HIGH_TO_LOW") {
+  } else if (filter === "Latest") {
     movieData.Search.sort((a, b) => b.Year - a.Year);
     movieListEl.innerHTML = movieData.Search.map((film) => filmHTML(film)).join(
       ""
@@ -99,7 +98,6 @@ function filmHTML(film) {
       </div>
     </div>
   </div>`;
-  movieWrapper.innerHTML = filmHTML(film);
 }
 
 filterFilms();
